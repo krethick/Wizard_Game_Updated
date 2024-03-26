@@ -11114,6 +11114,7 @@ MonoBehaviour:
   _horizontalAxis: Horizontal
   _verticalAxis: Vertical
   _rb2d: {fileID: 1414616562}
+  _speed: 3
 --- !u!1 &1743357517
 GameObject:
   m_ObjectHideFlags: 0
