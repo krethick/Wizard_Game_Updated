@@ -9082,7 +9082,7 @@ Camera:
   far clip plane: 1000
   field of view: 34
   orthographic: 1
-  orthographic size: 6.49
+  orthographic size: 6.16
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -10662,7 +10662,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1001198167}
   m_Lens:
     FieldOfView: 34
-    OrthographicSize: 6.49
+    OrthographicSize: 6.16
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -10894,6 +10894,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1299508688}
   - component: {fileID: 1299508690}
+  - component: {fileID: 1299508689}
   m_Layer: 0
   m_Name: WeaponParent
   m_TagString: Untagged
@@ -10916,6 +10917,20 @@ Transform:
   m_Father: {fileID: 1001198167}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1299508689
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1299508687}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d864343e2b20331429a2a5d2b91f7014, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _rb2d: {fileID: 1299508690}
+  _speed: 200
 --- !u!50 &1299508690
 Rigidbody2D:
   serializedVersion: 4
@@ -11074,6 +11089,7 @@ MonoBehaviour:
   - {fileID: 1204615392}
   - {fileID: 1330029162}
   _speed: 1
+  _xLimit: 12.5
 --- !u!1 &1389844765
 GameObject:
   m_ObjectHideFlags: 0
