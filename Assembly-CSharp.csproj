@@ -39,9 +39,10 @@
      <Compile Include="Assets\_Scripts\Weapon.cs" />
      <Compile Include="Assets\_Scripts\AdditionalScripts\DestroyWithDelay.cs" />
      <Compile Include="Assets\_Scripts\CloudController.cs" />
+     <Compile Include="Assets\_Scripts\WeaponRotation.cs" />
      <Compile Include="Assets\_Scripts\AdditionalScripts\CharacterAnimation.cs" />
      <Compile Include="Assets\_Scripts\Player.cs" />
-     <Compile Include="Assets\_Scripts\WeaponRotation.cs" />
+     <Compile Include="Assets\_Scripts\EnemyController.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\_Sprites\Kenney Tiny Dungeon\License.txt" />
