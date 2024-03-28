@@ -39,9 +39,17 @@ public class EnemyController : MonoBehaviour
     }
 
     private void SpawnEnemy()
-    {
+    { 
+        // To instantiate a Prefab at run time, your code needs a reference to that Prefab. You can make this reference by creating a public 
+        // variable in your code to hold the Prefab reference. 
+        //The public variable in your code appears as an assignable field in the Inspector.
+
         Vector3 spawnPosition = SelectRandomPosition();
-        Debug.Log(spawnPosition);
+
+        // quaternion corresponds to "no rotation" - the object is perfectly aligned with the world or parent axes.
+
+        GameObject enemyObject 
+                = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
     }
 
     private Vector3 SelectRandomPosition()
@@ -70,7 +78,7 @@ public class EnemyController : MonoBehaviour
                break;
                 
         }
-        return selectedTransform.position;
+        return selectedTransform.position + (Vector3)Random.insideUnitCircle;
     }
 
 
