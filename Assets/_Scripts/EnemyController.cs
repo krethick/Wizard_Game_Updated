@@ -11,6 +11,14 @@ using UnityEngine.PlayerLoop;
       The Prefab Asset acts as a template from which you can create new Prefab instances in the Scene.
 */
 
+/*
+  What are Enums ?
+   => Are used to give meaningful names to some values
+    Refer to this site: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/enum
+
+  For casting and conversions refer this https://learn.microsoft.com/en-us/dotnet/csharp/programming-guide/types/casting-and-type-conversions
+*/
+
 public class EnemyController : MonoBehaviour
 {
     [SerializeField]
@@ -42,18 +50,19 @@ public class EnemyController : MonoBehaviour
 
         // Returns a random float within [minInclusive..maxInclusive]
         int randomValue = Random.Range(0,4); // 0,1,2,3 (_spawnTopLeft, _spawnTopRight, _spawnBottomLeft, _spawnBottomRight;)
-        switch(randomValue) // switch statement brackets is not required(optional).
+        SpawnPointType spawnType = (SpawnPointType)randomValue; // Explicit type conversion
+        switch(spawnType) // switch statement brackets is not required(optional).
         {
-          case 0: 
+          case SpawnPointType.TopLeft: 
                selectedTransform = _spawnTopLeft; // for auto completion ctrl + spacebar
                break;
-          case 1:
+          case SpawnPointType.TopRight:
                selectedTransform = _spawnTopRight;
                break;
-          case 2:
+          case SpawnPointType.BottomLeft:
               selectedTransform = _spawnBottomLeft;
               break;
-          case 3:
+          case SpawnPointType.BottomRight:
               selectedTransform = _spawnBottomRight;
               break;
           default:
@@ -71,4 +80,15 @@ public class EnemyController : MonoBehaviour
     {
       
     }
+
 }
+
+    public enum SpawnPointType
+    {
+
+       // Not necessarily required to put 0,1,2,3 we can put any number as we like
+       TopLeft = 0 ,
+       TopRight = 1,
+       BottomLeft = 2,
+       BottomRight = 3
+    }
