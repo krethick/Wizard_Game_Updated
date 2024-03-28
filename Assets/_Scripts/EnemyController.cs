@@ -1,6 +1,7 @@
 
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine;
 using UnityEngine.PlayerLoop;
 
@@ -50,6 +51,11 @@ public class EnemyController : MonoBehaviour
 
         GameObject enemyObject 
                 = Instantiate(_enemyPrefab, spawnPosition, Quaternion.identity);
+        EnemyAI enemy = enemyObject.GetComponent<EnemyAI>();
+        if(enemy != null)
+        {
+            enemy.OnDie += SpawnEnemy; // When enemy dies more enemies gets created. EnemyAI and EnemyController both act as sender and receiver
+        }
     }
 
     private Vector3 SelectRandomPosition()

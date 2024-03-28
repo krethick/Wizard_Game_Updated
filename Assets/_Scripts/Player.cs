@@ -43,4 +43,8 @@ public class Player : MonoBehaviour
         _input = new Vector2(horizontalInput, VerticalInput); // Store the above two in the variable _input
         _input.Normalize(); // Fixes the magnitude and makes it 1.
     }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+      Destroy(gameObject);
+    }
 }

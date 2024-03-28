@@ -1,9 +1,10 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Scripting.APIUpdating;
 
+/*
+  What is an Action Delegate?
+   =>  Encapsulates a method that has no parameters and does not return a value.
+*/
 public class EnemyAI : MonoBehaviour
 {
 
@@ -17,6 +18,8 @@ public class EnemyAI : MonoBehaviour
 
     [SerializeField]
     private GameObject _crabDead;
+
+    public event Action OnDie = null; // Delegate
 
     /*
       Change the order in layer as 0
@@ -59,7 +62,11 @@ public class EnemyAI : MonoBehaviour
         {
             if(collision.CompareTag("Weapon")){ // Collide the weapon
                 Instantiate(_crabDead, transform.position, Quaternion.identity);
-                Destroy(gameObject); // Destroys the enemyt
+                Destroy(gameObject); // Destroys the enemy
+                if(OnDie !=null)
+                {
+                    OnDie();
+                }
             }
         }
 }
