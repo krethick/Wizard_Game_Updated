@@ -1,6 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Player : MonoBehaviour
 {
@@ -15,6 +14,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private float _speed = 3f;
+
+    public UnityEvent OnPlayerDie; // Exposed in the inspector (delegate)
     private void FixedUpdate() {
         _rb2d.velocity = _input * _speed; // After that assign _input to _rb2d.velocity 
     }
@@ -45,6 +46,12 @@ public class Player : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other) {
+      if(OnPlayerDie !=null)
+      {
+        OnPlayerDie.Invoke(); // Its is present in the OnPlayerdie in the inspector where we put the child Object GameOver UI
+      }
       Destroy(gameObject);
     }
+
+    
 }
